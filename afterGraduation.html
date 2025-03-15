@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After Graduation - Career Options</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Helvetica', sans-serif;
+            text-align: center;
+            color: #343a40;
+            padding: 20px;
+        }
+        header {
+            background: #0077b6;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            background: #0096c7;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            background: #00b4d8;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        .section {
+            background: white;
+            padding: 40px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .branch {
+            position: relative;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .branch h3 {
+            background: #0077b6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 20px;
+            position: relative;
+        }
+        .sub-branches {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .sub-branch {
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: #ffca3a;
+            color: white;
+            margin: 10px;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out, transform 0.3s;
+            position: relative;
+        }
+        .sub-branch:hover {
+            background: #ffac1c;
+            transform: scale(1.1);
+        }
+        .sub-branch:hover::after {
+            content: attr(data-info);
+            position: absolute;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+        footer {
+            background: #0077b6;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Career Options After Graduation</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="after10th.html">After 10th</a></li>
+                <li><a href="after12th.html">After 12th</a></li>
+                <li><a href="afterGraduation.html">After Graduation</a></li>
+                <li><a href="exams.html">Entrance Exams</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section class="section">
+            <h2>Available Career Paths</h2>
+            <div class="tree">
+                <div class="branch">
+                    <h3>Engineering Students</h3>
+                    <div class="sub-branches">
+                        <div class="sub-branch" data-info="Master of Technology">M.Tec</div>
+                        <div class="sub-branch" data-info="Master of Business Administration">MBA</div>
+                        <div class="sub-branch">JOB</div>
+                    </div>
+                </div>
+                <div class="branch">
+                    <h3>Medical Students</h3>
+                    <div class="sub-branches">
+                        <div class="sub-branch" data-info="Medical Practice">Practice</div>
+                        <div class="sub-branch" data-info="Master of Surgery">MS</div>
+                        <div class="sub-branch" data-info="Doctor of Medicine">MD</div>
+                        <div class="sub-branch">JOB</div>
+                    </div>
+                </div>
+                <div class="branch">
+                    <h3>Degree Students</h3>
+                    <div class="sub-branches">
+                        <div class="branch">
+                            <h4>BA Students</h4>
+                            <div class="sub-branches">
+                                <div class="sub-branch" data-info="Master of Arts">MA</div>
+                                <div class="sub-branch" data-info="Bachelor of Education">B.Ed</div>
+                                <div class="sub-branch" data-info="Master of Business Administration">MBA</div>
+                                <div class="sub-branch" data-info="Bachelor of Laws">LLB</div>
+                                <div class="sub-branch" data-info="Doctor of Philosophy">Phd</div>
+                                <div class="sub-branch">JOB</div>
+                            </div>
+                        </div>
+                        <div class="branch">
+                            <h4>B.Sc Students</h4>
+                            <div class="sub-branches">
+                                <div class="sub-branch" data-info="Master of Science">MSC</div>
+                                <div class="sub-branch" data-info="Bachelor of Education">B.Ed</div>
+                                <div class="sub-branch" data-info="Bachelor of Laws">LLB</div>
+                                <div class="sub-branch" data-info="Doctor of Philosophy">Phd</div>
+                                <div class="sub-branch">JOB</div>
+                            </div>
+                        </div>
+                        <div class="branch">
+                            <h4>B.Com Students</h4>
+                            <div class="sub-branches">
+                                <div class="sub-branch" data-info="Master of Commerce">M.Com</div>
+                                <div class="sub-branch" data-info="Master of Business Administration">MBA</div>
+                                <div class="sub-branch" data-info="Bachelor of Laws">LLB</div>
+                                <div class="sub-branch" data-info="Doctor of Philosophy">Phd</div>
+                                <div class="sub-branch">JOB</div>
+                            </div>
+                        </div>
+                        <div class="branch">
+                            <h4>LLB Students</h4>
+                            <div class="sub-branches">
+                                <div class="sub-branch" data-info="Diploma in Taxation Law">DTL</div>
+                                <div class="sub-branch" data-info="Diploma in Labour Laws">DLL</div>
+                                <div class="sub-branch" data-info="Master of Laws">LLM</div>
+                                <div class="sub-branch">JOB</div>
+                            </div>
+                        </div>
+                        <div class="branch">
+                            <h4>BCA Students</h4>
+                            <div class="sub-branches">
+                                <div class="sub-branch" data-info="Master of Computer Applications">MCA</div>
+                                <div class="sub-branch" data-info="Master of Business Administration">MBA</div>
+                                <div class="sub-branch" data-info="Master of Science in Computer Science">MSc.Comp</div>
+                                <div class="sub-branch" data-info="Doctor of Philosophy">Phd</div>
+                                <div class="sub-branch">JOB</div>
+                            </div>
+                        </div>
+                        <div class="branch">
+                            <h4>BBA/BBM Students</h4>
+                            <div class="sub-branches">
+                                <div class="sub-branch" data-info="Master of Business Administration">MBA</div>
+                                <div class="sub-branch" data-info="Doctor of Philosophy">Phd</div>
+                                <div class="sub-branch">JOB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="branch">
+                    <h3>Teaching Students</h3>
+                    <div class="sub-branches">
+                        <div class="sub-branch" data-info="Bachelor of Education / Bachelor of Physical Education">B.Ed / B.PEd</div>
+                        <div class="sub-branch" data-info="Master of Education">M.Ed</div>
+                        <div class="sub-branch" data-info="Doctor of Philosophy">Phd</div>
+                        <div class="sub-branch">JOB</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Career Guide | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
