@@ -7,115 +7,229 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
             background: #f8f9fa;
             font-family: 'Helvetica', sans-serif;
             text-align: center;
             color: #343a40;
-            padding: 20px;
+            padding: 10px;
+            line-height: 1.6;
         }
+        
         header {
             background: #0077b6;
             color: white;
-            padding: 25px;
+            padding: 20px 15px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
         }
+        
+        header h1 {
+            font-size: 1.8rem;
+        }
+        
         nav ul {
             list-style: none;
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
+        
         nav ul li {
-            display: inline;
+            margin: 5px;
         }
+        
         nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
             background: #0096c7;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 5px;
             transition: 0.3s;
+            display: inline-block;
+            font-size: 0.9rem;
         }
+        
         nav ul li a:hover {
             background: #00b4d8;
         }
+        
         .container {
+            width: 100%;
             max-width: 1000px;
             margin: auto;
-            padding: 20px;
+            padding: 10px;
         }
+        
         .section {
             background: white;
-            padding: 40px;
-            margin: 20px 0;
+            padding: 20px 15px;
+            margin: 15px 0;
             border-radius: 15px;
             box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
         }
+        
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
         .tree {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
         }
+        
         .branch {
             position: relative;
             text-align: center;
-            margin: 20px auto;
+            margin: 15px auto;
+            width: 100%;
         }
-        .branch h3 {
+        
+        .branch h3, .branch h2 {
             background: #0077b6;
             color: white;
-            padding: 10px 20px;
+            padding: 10px;
             border-radius: 8px;
             display: inline-block;
-            font-size: 20px;
+            font-size: 1.2rem;
             position: relative;
+            margin-bottom: 15px;
+            max-width: 90%;
         }
+        
         .sub-branches {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 10px;
+            position: relative;
+            width: 100%;
         }
+        
         .sub-branch {
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 8px;
             background: #ffca3a;
             color: white;
-            margin: 10px;
             font-weight: bold;
             transition: background 0.3s ease-in-out, transform 0.3s;
             position: relative;
+            font-size: 0.9rem;
         }
+        
         .sub-branch:hover {
             background: #ffac1c;
-            transform: scale(1.1);
+            transform: scale(1.05);
+            z-index: 10;
         }
+        
         .sub-branch:hover::after {
             content: attr(data-info);
             position: absolute;
-            top: 120%;
+            top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 8px;
+            padding: 6px 8px;
             border-radius: 5px;
-            white-space: nowrap;
-            font-size: 14px;
+            font-size: 0.8rem;
+            z-index: 20;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            width: max-content;
+            max-width: 200px;
+            white-space: normal;
         }
+        
         footer {
             background: #0077b6;
             color: white;
-            padding: 15px;
+            padding: 12px;
             border-radius: 10px;
             margin-top: 20px;
-            font-size: 14px;
+            font-size: 0.8rem;
         }
         
+        /* Media Queries for Responsive Design */
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            nav ul li {
+                width: 100%;
+                margin: 2px 0;
+            }
+            
+            nav ul li a {
+                display: block;
+                width: 100%;
+            }
+            
+            .section {
+                padding: 15px 10px;
+            }
+            
+            .branch h3, .branch h2 {
+                font-size: 1rem;
+                padding: 8px;
+            }
+            
+            .sub-branch {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            header {
+                padding: 15px 10px;
+            }
+            
+            header h1 {
+                font-size: 1.2rem;
+            }
+            
+            .container {
+                padding: 5px;
+            }
+            
+            .section {
+                padding: 12px 8px;
+            }
+            
+            .sub-branches {
+                gap: 5px;
+            }
+            
+            .sub-branch:hover::after {
+                max-width: 150px;
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -144,7 +258,6 @@
                 <div class="branch">
                     <h3>Engineering (Eligible: MPC)</h3>
                     <div class="sub-branches">
-                        <div class="sub-branch" data-info="Computer systems.">CSE</div>
                         <div class="sub-branch" data-info="Computer systems">CSE</div>
                         <div class="sub-branch" data-info="Data management">IT</div>
                         <div class="sub-branch" data-info="Electrical systems">ECE</div>
@@ -173,29 +286,29 @@
                             <h2>Medicine</h2>
                             <div class="sub-branches">
                                 <div class="sub-branch" data-info="Allopathic medicine">MBBS</div>
-                                    <div class="sub-branch" data-info="Unani medicine">BUMS</div>
-                                    <div class="sub-branch" data-info="Homeopathic medicine">BHMS</div>
-                                    <div class="sub-branch" data-info="Ayurvedic medicine">BAMS</div>
-                                    <div class="sub-branch" data-info="Naturopathic medicine">BNYS</div>
-                                    <div class="sub-branch" data-info="Agricultural science">Ag.BSc</div>
-                                    <div class="sub-branch" data-info="Dental surgery">BDS</div>
-                                    <div class="sub-branch" data-info="Veterinary science">BVSc</div>
-                                    <div class="sub-branch" data-info="Physiotherapy">BPT</div>
+                                <div class="sub-branch" data-info="Unani medicine">BUMS</div>
+                                <div class="sub-branch" data-info="Homeopathic medicine">BHMS</div>
+                                <div class="sub-branch" data-info="Ayurvedic medicine">BAMS</div>
+                                <div class="sub-branch" data-info="Naturopathic medicine">BNYS</div>
+                                <div class="sub-branch" data-info="Agricultural science">Ag.BSc</div>
+                                <div class="sub-branch" data-info="Dental surgery">BDS</div>
+                                <div class="sub-branch" data-info="Veterinary science">BVSc</div>
+                                <div class="sub-branch" data-info="Physiotherapy">BPT</div>
                             </div>
                             <h2>Allied Health Sciences</h2>
                             <div class="sub-branches">
                                 <div class="sub-branch" data-info="Pharmaceutical science">B.Pharma</div>
-                                    <div class="sub-branch" data-info="Nursing">BSc-Nursing</div>
-                                    <div class="sub-branch" data-info="Occupational therapy">BOT</div>
-                                    <div class="sub-branch" data-info="Anesthesia technology">BSc-Anesthesia Tec</div>
-                                    <div class="sub-branch" data-info="Cardiac technology">BSc-Cardiac Tec</div>
-                                    <div class="sub-branch" data-info="Medical lab technology">BSc-Medical lab Tec</div>
-                                    <div class="sub-branch" data-info="Radio therapy technology">BSc-Radio Therapy Tec</div>
-                                    <div class="sub-branch" data-info="Clinical optometry">BSc-Clinical Optometry</div>
-                                    <div class="sub-branch" data-info="Nuclear medicine">BSc-Nuclear Medicine</div>
-                                    <div class="sub-branch" data-info="Operation theatre technology">BSc-Operation Theatre</div>
-                                    <div class="sub-branch" data-info="Physician assistant">BSc-Physician assistant</div>
-                                    <div class="sub-branch" data-info="Respiratory care">BSc-Respiratory care</div>
+                                <div class="sub-branch" data-info="Nursing">BSc-Nursing</div>
+                                <div class="sub-branch" data-info="Occupational therapy">BOT</div>
+                                <div class="sub-branch" data-info="Anesthesia technology">BSc-Anesthesia Tec</div>
+                                <div class="sub-branch" data-info="Cardiac technology">BSc-Cardiac Tec</div>
+                                <div class="sub-branch" data-info="Medical lab technology">BSc-Medical lab Tec</div>
+                                <div class="sub-branch" data-info="Radio therapy technology">BSc-Radio Therapy Tec</div>
+                                <div class="sub-branch" data-info="Clinical optometry">BSc-Clinical Optometry</div>
+                                <div class="sub-branch" data-info="Nuclear medicine">BSc-Nuclear Medicine</div>
+                                <div class="sub-branch" data-info="Operation theatre technology">BSc-Operation Theatre</div>
+                                <div class="sub-branch" data-info="Physician assistant">BSc-Physician assistant</div>
+                                <div class="sub-branch" data-info="Respiratory care">BSc-Respiratory care</div>
                             </div>
                        </div> 
                     </div>
@@ -204,23 +317,21 @@
                     <h3>Degree</h3>
                     <div class="sub-branches">
                         <div class="sub-branch" data-info="Bachelor of Arts">BA</div>
-                            <div class="sub-branch" data-info="Bachelor of Science">BSc</div>
-                            <div class="sub-branch" data-info="Bachelor of Commerce">BCom</div>
-                            <div class="sub-branch" data-info="Bachelor of Laws">LLB</div>
-                            <div class="sub-branch" data-info="Bachelor of Business Administration">BBA</div>
-                        </div>
+                        <div class="sub-branch" data-info="Bachelor of Science">BSc</div>
+                        <div class="sub-branch" data-info="Bachelor of Commerce">BCom</div>
+                        <div class="sub-branch" data-info="Bachelor of Laws">LLB</div>
+                        <div class="sub-branch" data-info="Bachelor of Business Administration">BBA</div>
                     </div>
                 </div>
                 <div class="branch">
                     <h3>Dual-Degree</h3>
                     <div class="sub-branches">
                         <div class="sub-branch" data-info="Bachelor of Arts and Bachelor of Education">BA + BEd</div>
-                            <div class="sub-branch" data-info="Bachelor of Science and Bachelor of Education">BSc + BEd</div>
-                            <div class="sub-branch" data-info="Bachelor of Arts and Bachelor of Laws">BA + LLB</div>
-                            <div class="sub-branch" data-info="Bachelor of Commerce and Bachelor of Laws">BCom + LLB</div>
-                            <div class="sub-branch" data-info="Bachelor of Business Management and Bachelor of Laws">BBM + LLB</div>
-                            <div class="sub-branch" data-info="Bachelor of Business Administration and Bachelor of Laws">BBA + LLB</div>
-                        </div>
+                        <div class="sub-branch" data-info="Bachelor of Science and Bachelor of Education">BSc + BEd</div>
+                        <div class="sub-branch" data-info="Bachelor of Arts and Bachelor of Laws">BA + LLB</div>
+                        <div class="sub-branch" data-info="Bachelor of Commerce and Bachelor of Laws">BCom + LLB</div>
+                        <div class="sub-branch" data-info="Bachelor of Business Management and Bachelor of Laws">BBM + LLB</div>
+                        <div class="sub-branch" data-info="Bachelor of Business Administration and Bachelor of Laws">BBA + LLB</div>
                     </div>
                 </div>
                 <div class="branch">
