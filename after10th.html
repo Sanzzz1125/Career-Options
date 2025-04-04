@@ -79,6 +79,7 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 15px;
+            position: relative;
         }
         .sub-branch {
             padding: 10px 15px;
@@ -93,6 +94,7 @@
         .sub-branch:hover {
             background: #ffac1c;
             transform: scale(1.1);
+            z-index: 10; /* Add z-index to ensure hover element appears on top */
         }
         .sub-branch:hover::after {
             content: attr(data-info);
@@ -106,6 +108,8 @@
             border-radius: 5px;
             white-space: nowrap;
             font-size: 14px;
+            z-index: 20; /* Higher z-index for tooltip to appear on top of everything */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         footer {
             background: #0077b6;
@@ -115,7 +119,137 @@
             margin-top: 20px;
             font-size: 14px;
         }
-        
+        /* Existing styles remain the same, adding responsive modifications */
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    nav ul li a {
+        display: inline-block;
+        padding: 10px 15px;
+    }
+
+    .container {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .section {
+        padding: 25px;
+        margin: 15px 0;
+    }
+
+    .branch h3 {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+
+    .sub-branches {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sub-branch {
+        margin: 8px;
+        padding: 10px 15px;
+    }
+}
+
+/* For mobile phones */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .branch h3 {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .sub-branches {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sub-branch {
+        width: 90%;
+        margin: 8px 0;
+        text-align: center;
+    }
+
+    .sub-branch:hover::after {
+        position: static;
+        display: block;
+        margin-top: 5px;
+        transform: none;
+        font-size: 12px;
+    }
+}
+
+/* For small mobile phones */
+@media screen and (max-width: 320px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .branch h3 {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .sub-branch {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
+
+/* Ensure touch-friendly sizes for mobile */
+@media (max-width: 768px) {
+    .sub-branch {
+        min-height: 44px; /* Minimum touch target size */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
     </style>
 </head>
 <body>
